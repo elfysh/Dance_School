@@ -1,0 +1,17 @@
+.card__input {
+    padding: 12px;
+    border: 2px solid var(--outline);
+    background-color: var(--surface-container-highest);
+    border-radius: 10px;
+    outline: none;
+    width: 200px;
+    color: var(--on-surface);
+}
+
+.card__input:focus {
+    border-color: var(--primary);
+}
+
+.card__input:focus::placeholder {
+    color: transparent;
+}

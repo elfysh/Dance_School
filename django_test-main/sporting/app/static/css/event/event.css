@@ -1,0 +1,21 @@
+/* General imports */
+@import "../general/base.css";
+@import "../general/admin/admin_card.css";
+@import "../general/cards_grid.css";
+@import "../general/input.css";
+@import "../general/add_button.css";
+@import "../colors/light.css";
+@import "../general/admin/admin_main_title.css";
+@import "../general/admin/admin_back_button.css";
+@import "../general/admin/admin_button_back_image.css";
+@import "../general/save_button.css";
+@import "../general/card_top/card_top.css";
+@import "../general/card_top/card_top_info.css";
+@import "../general/card_top/card_top_buttons.css";
+@import "../general/card_top/card_top_info_address.css";
+@import "../general/card_top/card_top_info_phone.css";
+@import "../general/card_top/card_top_info_header.css";
+@import "../general/card_form/card_form_colors.css";
+@import "../general/card_form/card_form_grid.css";
+@import "../general/card_form/form_title.css";
+@import "../general/change_theme_button.css";

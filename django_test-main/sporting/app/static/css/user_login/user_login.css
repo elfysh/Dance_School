@@ -1,0 +1,10 @@
+@import "../admin_login/admin_login.css";
+
+.login-grid {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    height: 100vh;
+}
+
+

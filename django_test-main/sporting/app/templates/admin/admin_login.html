@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin panel login</title>
+    <link rel="stylesheet" href="{% static 'css/admin_login/admin_login.css' %}">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_back"/>
+
+
+</head>
+<body class="light">
+<h2 class="admin-login-title">Admin panel login</h2>
+
+<a href="/" class="button-back">
+    <span id="top_icon" class="material-symbols-outlined">arrow_back</span>
+</a>
+
+{% if error %}
+    <p> {{ error }} </p>
+{% endif %}
+
+<div class="login-form">
+    <form method="post" action="/admin/login" class="login-form__grid">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username" class="card__input">
+        <input type="password" name="password" placeholder="Password" class="card__input">
+        <input type="submit" value="Войти" class="login-form__button">
+    </form>
+</div>
+
+</body>
+</html>

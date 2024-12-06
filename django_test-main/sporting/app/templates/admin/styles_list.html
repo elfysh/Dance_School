@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Styles</title>
+    <link rel="stylesheet" href="{% static "css/styles/styles.css" %}"/>
+    <script type="text/javascript" src="{% static "javascript/scripts.js" %}"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0&icon_names=add,arrow_back,dark_mode,delete,edit,light_mode"/>
+
+</head>
+
+<body id="body" class="light">
+
+<h1 class="main-title">Styles</h1>
+<a href="/admin" class="button-back">
+    <span id="top_icon" class="material-symbols-outlined">arrow_back</span>
+</a>
+
+<p class="error-message">{{ error_message|default_if_none:"" }}</p>
+
+<button onclick="changeTheme()" class="change-theme-button">
+    <span id="top_icon" class="material-symbols-outlined material-symbols-outlined__dark-mode">dark_mode</span></button>
+
+
+<main class="content">
+    <div class="cards-grid">
+        {% for style in styles %}
+            <div class="card card-form-grid">
+                <div class="card-top">
+                    <div class="card-top-info">
+                        <p class="card-top-info__header">{{ style.name }}</p>
+                    </div>
+                    <div class="card-top-buttons">
+                        <button onclick="showEditForm('{{ style.id }}')" class="card-top-buttons__button button">
+                            <span id="icon" class="material-symbols-outlined">edit</span>
+                        </button>
+
+                        <form method="post" action="/admin/delete_style/{{ style.id }}"
+                              class="styles-card__form_delete">
+                            {% csrf_token %}
+                            <button type="submit" class="card-top-buttons__button button">
+                                <span id="icon" class="material-symbols-outlined">delete</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="edit-form-{{ style.id }}" class="card form-hidden">
+                    <form method="post" action="/admin/edit_style/{{ style.id }}">
+                        {% csrf_token %}
+                        <div class="card-form-grid card-form-grid__align-center card__outline card">
+                            <p class="form-title">Редактирование направления</p>
+                            {% for field in edit_style_form %}
+                                {{ field }}
+                            {% endfor %}
+                            <button type="submit" class="save-button">Сохранить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        {% empty %}
+            <p class="empty-list-indicator">Танцевальные направления отсутствуют</p>
+        {% endfor %}
+
+    </div>
+
+    <div class="add-block">
+        <button onclick="showAddForm()" class="add-block__button">
+            <span id="add_icon" class="material-symbols-outlined">add</span>
+        </button>
+        <div id="add-form" class="card form-hidden" style="margin-top: 16px">
+            <form method="POST" class="card-form-grid card-form-grid__align-center" action="/admin/add_style">
+                <p class="form-title">Новое направление</p>
+                {% csrf_token %}
+                {% for field in style_form %}
+                    {{ field }}
+                {% endfor %}
+                <button type="submit" class="save-button">Добавить</button>
+            </form>
+        </div>
+
+    </div>
+</main>
+
+
+</body>
+
+</html>

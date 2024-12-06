@@ -1,0 +1,16 @@
+@import "ic_dark_mode.css";
+
+#top_icon {
+    font-size: 100px;
+    color: var(--on-surface);
+}
+
+#icon {
+    font-size: 35px;
+    color: var(--on-surface);
+}
+
+#add_icon {
+    font-size: 56px;
+    color: var(--on-secondary-container);
+}

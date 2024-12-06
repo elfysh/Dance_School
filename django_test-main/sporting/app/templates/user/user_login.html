@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>User login</title>
+    <link rel="stylesheet" href="{% static 'css/user_login/user_login.css' %}">
+</head>
+<body id="body" class="light">
+<h2 class="admin-login-title">User login</h2>
+
+{% if error %}
+    <p> {{ error }} </p>
+{% endif %}
+
+<div class="login-grid">
+    <div class="login-form">
+        <form method="post" action="/user/login" class="login-form__grid">
+            {% csrf_token %}
+            <p>Войти</p>
+            <input type="text" name="username" placeholder="Username" class="card__input">
+            <input type="password" name="password" placeholder="Password" class="card__input">
+            <input type="submit" value="Войти" class="login-form__button">
+        </form>
+    </div>
+
+    <div class="login-form">
+        <form method="post" action="/user/signup" class="login-form__grid">
+            {% csrf_token %}
+             <p>Зарегистрироваться</p>
+            <input type="text" name="username" placeholder="Username" class="card__input">
+            <input type="text" name="phone" placeholder="+7 999 771 31 56" class="card__input">
+            <input type="password" name="password" placeholder="Password" class="card__input">
+            <input type="password" name="password_repeat" placeholder="Repeat password" class="card__input">
+            <input type="submit" value="Зарегистрироваться" class="login-form__button">
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

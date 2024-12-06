@@ -1,0 +1,11 @@
+.card-form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 32px;
+    margin-top: 16px;
+}
+
+.card-form-grid__align-center {
+    align-items: center;
+}

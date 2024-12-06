@@ -1,0 +1,5 @@
+.card-top-info__phone {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--on-surface-variant);
+}
