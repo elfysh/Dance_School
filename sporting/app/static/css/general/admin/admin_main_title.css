@@ -1,0 +1,7 @@
+.main-title {
+    text-transform: uppercase;
+    font-size: 128px;
+    font-weight: bold;
+    text-align: center;
+    color: var(--on-surface);
+}

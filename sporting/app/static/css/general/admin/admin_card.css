@@ -1,0 +1,34 @@
+.card {
+    background-color: var(--surface-container-highest);
+    border-radius: 30px;
+}
+
+.card__buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.form-hidden {
+    display: none;
+}
+
+.card-top-buttons__button {
+    background-color: rgba(0, 0, 0, 0.0);
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+.card-top-buttons__button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.card-top-buttons__button:active {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.card-top-buttons__button__image {
+    width: 100%;
+}

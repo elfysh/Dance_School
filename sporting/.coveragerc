@@ -1,0 +1,4 @@
+[run]
+omit =
+    app/views/user_panel/*
+    app/views/admin_panel/*

@@ -1,0 +1,40 @@
+@import "../general/base.css";
+@import "../colors/light.css";
+@import "../colors/dark.css";
+@import "../general/admin/admin_back_button.css";
+@import "../general/change_theme_button.css";
+
+.admin-panel-title {
+    font-size: 128px;
+    font-family: Roboto;
+    color: var(--on-surface);
+    text-align: center;
+}
+
+.button-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: stretch;
+    width: 500px;
+    margin: 64px auto;
+}
+
+.admin-button {
+    padding: 32px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--surface-container-highest);
+    text-decoration: none;
+    gap: 32px;
+}
+
+.admin-button__name {
+    font-size: 48px;
+    font-family: Roboto;
+    color: var(--on-surface);
+    margin: 0px;
+}

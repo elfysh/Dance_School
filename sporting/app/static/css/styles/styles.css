@@ -1,0 +1,78 @@
+/* General imports */
+@import "../general/base.css";
+@import "../general/admin/admin_card.css";
+@import "../general/cards_grid.css";
+@import "../general/input.css";
+@import "../general/add_button.css";
+@import "../colors/light.css";
+@import "../general/admin/admin_main_title.css";
+@import "../general/admin/admin_back_button.css";
+@import "../general/admin/admin_button_back_image.css";
+@import "../general/save_button.css";
+@import "../general/card_top/card_top.css";
+@import "../general/card_top/card_top_info.css";
+@import "../general/card_top/card_top_buttons.css";
+@import "../general/card_top/card_top_info_address.css";
+@import "../general/card_top/card_top_info_phone.css";
+@import "../general/card_top/card_top_info_header.css";
+@import "../general/card_form/card_form_colors.css";
+@import "../general/card_form/card_form_grid.css";
+@import "../general/card_form/form_title.css";
+@import "../general/change_theme_button.css";
+
+
+.error-message {
+    text-align: center;
+    margin-top: 32px;
+    font-size: 24px;
+    color: var(--error);
+}
+
+
+.styles-card__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.styles-card__name {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+
+.styles-card__bottom {
+    display: flex;
+    gap: 10px;
+    margin-top: 50px;
+}
+
+
+.add-style__form {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.add-style__form__style-name {
+    padding: 10px;
+    border: 2px solid var(--outline-variant);
+    background-color: var(--surface-container-highest);
+    border-radius: 5px;
+    outline: none;
+    width: 200px;
+}
+
+.add-style__form__style-name:focus {
+    border-color: var(--primary);
+}
+
+.add-style__form__style-name:focus::placeholder {
+    color: transparent;
+}
+
+
+.empty-list-indicator {
+    text-align: center;
+    font-size: 24px;
+}

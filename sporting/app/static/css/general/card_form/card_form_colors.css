@@ -1,0 +1,3 @@
+.card__outline {
+    outline: var(--outline) solid 2px;
+}

@@ -1,0 +1,8 @@
+.save-button {
+    background-color: var(--primary);
+    color: var(--on-primary);
+    border: none;
+    border-radius: 100px;
+    object-fit: contain;
+    padding: 12px;
+}

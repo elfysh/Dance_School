@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мастер-классы и мероприятия</title>
+    <link rel="stylesheet" href="{% static "css/user/user.css" %}">
+    <script type="text/javascript" src="{% static "javascript/scripts.js" %}"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_back,dark_mode,search"/>
+</head>
+<body id="body" class="light">
+
+<header>
+    <div class="top-buttons">
+
+        <a href="/" class="button-back">
+            <span id="top_icon" class="material-symbols-outlined">arrow_back</span>
+        </a>
+
+        <button onclick="changeTheme()" class="change-theme-button">
+            <span id="top_icon" class="material-symbols-outlined material-symbols-outlined__dark-mode">dark_mode</span>
+        </button>
+    </div>
+</header>
+
+<main class="main">
+
+    <form class="filter-form" method="get" action="/user">
+        <label for="search" class="search-label">Фильтр</label>
+        <div class="form-elements">
+            {% for field in filter_form %}
+                {{ field }}
+            {% endfor %}
+            <button type="submit" class="search-button">
+                <span class="material-symbols-outlined">search</span>
+            </button>
+        </div>
+
+    </form>
+    <div class="tabletime">
+        <section class="classes">
+            {% for class in classes %}
+                <article class="user-card">
+                    <h2 class="card-title">{{ class.name }}</h2>
+                    <p class="card-text">{{ class.time }}</p>
+                    <p class="card-text">в зале {{ class.hall }}</p>
+                    <p class="card-text">в школе {{ class.school_name }}</p>
+                    <p class="card-text">по адресу {{ class.school_address }}</p>
+                    <p class="card-text">проведет {{ class.choreographer }}</p>
+                    <p class="card-text">танцевальное направление: {{ class.style }}</p>
+                    {% if not class.is_subscribed %}
+                        <form action="/user/subscribe" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="class_id" value="{{ class.id }}">
+                            <button type="submit" class="card-button__subscribe">Записаться</button>
+                        </form>
+                    {% else %}
+                        <p class="subscribed-yet-text">Вы уже записаны</p>
+                        <form action="/user/subscribe" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="class_id" value="{{ class.id }}">
+                            <button type="submit" class="card-button__unsubscribe">Отменить запись</button>
+                        </form>
+                    {% endif %}
+                </article>
+            {% empty %}
+                <h2 class="empty-error">Пока что мастер-классы отсутствуют</h2>
+            {% endfor %}
+            <div class="pagination">
+                {% for page in classes_pages %}
+                    <a href="/user?classes_page={{ page }}" class="page-link">{{ page }}</a>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="events">
+            {% for event in events %}
+                <article class="user-card">
+                    <h2 class="card-title">{{ event.name }}</h2>
+                    <p class="card-text">{{ event.date }}</p>
+                    <p class="card-text">в зале {{ event.school_name }}</p>
+                    <p class="card-text">по адресу {{ event.school_address }}</p>
+                </article>
+            {% empty %}
+                <h2 class="empty-error">Пока что мероприятия отсутствуют</h2>
+            {% endfor %}
+            <div class="pagination">
+                {% for page in events_pages %}
+                    <a href="/user?events_page={{ page }}" class="page-link">{{ page }}</a>
+                {% endfor %}
+            </div>
+        </section>
+
+    </div>
+</main>
+</body>
+</html>
